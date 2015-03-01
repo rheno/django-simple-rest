@@ -1,2 +1,2 @@
 # django-simple-rest
-Django Simple RestDjango Simple Rest
+Django Simple Rest
