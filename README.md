@@ -1,2 +1,2 @@
 # django-simple-rest
-Django Simple Rest
+Create simple REST response with Django
