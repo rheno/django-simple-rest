@@ -3,6 +3,8 @@ from django.contrib import admin
 
 from rest.views import get_response, post_response, put_response, patch_response, delete_response
 
+from rest2.views import MyView
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'simplerest.views.home', name='home'),
@@ -14,4 +16,7 @@ urlpatterns = patterns('',
     url(r'^rest/put', 'rest.views.put_response'),
     url(r'^rest/patch', 'rest.views.patch_response'),
     url(r'^rest/delete', 'rest.views.delete_response'),
+    
+    
+    url(r'^rest2/$', MyView.as_view(), name='param'),
 )
