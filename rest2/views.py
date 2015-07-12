@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, QueryDict
 from django.views.generic import View
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
@@ -13,18 +13,27 @@ class MyView(View):
 		return super(MyView, self).dispatch(request, *args, **kwargs)
 
 	def get(self, request):
-		return JsonResponse({'message':'success to GET'})
+		msg = request.GET.get('message')	
+		return JsonResponse({'message' : msg})
 
 	def post(self, request):
-		return JsonResponse({'message':'success to POST'})
+		post = QueryDict(request.body)
+		msg = post.get('message')
+		return JsonResponse({'message' : msg})
 		# or with parameter request  
 		# return JsonResponse({'object':request.POST.get('param')})
 		
 	def put(self, request):
-		return JsonResponse({'message':'success to PUT'})
+		put = QueryDict(request.body)
+		msg = put.get('message')
+		return JsonResponse({'message' : msg})
 		
 	def patch(self, request):
-		return JsonResponse({'message':'success to PATCH'})
+		patch = QueryDict(request.body)
+		msg = patch.get('message')
+		return JsonResponse({'message' : msg})
 	
 	def delete(self, request):
-		return JsonResponse({'message':'success to DELETE'})			
+		delete = QueryDict(request.body)
+		msg = delete.get('message')
+		return JsonResponse({'message' : msg})			
